@@ -85,7 +85,7 @@ export function useMQTTData(config: UseMQTTConfig = {}) {
 
           setStatus("connected");
           setError(null);
-          client.subscribe(telemetryTopic, (subscribeError?: Error) => {
+          client.subscribe(telemetryTopic, (subscribeError: Error | null) => {
             if (subscribeError) {
               setStatus("error");
               setError(subscribeError.message);
